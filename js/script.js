@@ -38,7 +38,7 @@ else
 
 
 // To ensure that home page can't be accessed unless there is currently a user logged in.
-if((currentPageName == 'home.html') && (isHomeActivated == false || isHomeActivated == null))
+if((currentPageName == 'home.html' || currentPageName == 'home') && (isHomeActivated == false || isHomeActivated == null))
 {
     changeWebPage('index.html');
 }
@@ -46,7 +46,7 @@ if((currentPageName == 'home.html') && (isHomeActivated == false || isHomeActiva
 
 /* To ensure that index page or signUp page can't be accessed if there is currently a user logged in. If a current logged in user exists,
    it will retrieve his/her data from local storage and then display welcome message.*/
-if(JSON.parse(localStorage.getItem('isHomeActivated')) == true && currentPageName != 'home.html')
+if(JSON.parse(localStorage.getItem('isHomeActivated')) == true && (currentPageName != 'home.html' || currentPageName != 'home'))
 {
     changeWebPage('home.html');
 }
